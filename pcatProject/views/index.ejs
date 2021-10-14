@@ -1,0 +1,55 @@
+<%- include('partials/_head') -%>
+<body>
+    <div class="tm-page-wrap mx-auto">
+        <div class="position-relative">
+            <%- include('partials/_nav') -%>
+            <div class="tm-welcome-container text-center text-white">
+                <div class="tm-welcome-container-inner">
+                    <p class="tm-welcome-text mb-1 text-white">Video Catalog is brought to you by TemplateMo.</p>
+                    <p class="tm-welcome-text mb-5 text-white">This is a full-width video banner.</p>
+                    <a href="#content" class="btn tm-btn-animate tm-btn-cta tm-icon-down">
+                        <span>Discover</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="tm-video-container">
+                    <!-- <source src="video/sunset-timelapse-video.mp4" type="video/mp4"> -->
+                    <img src="/img/contact-1.jpg" type="video/mp4">
+            </div>
+            
+            <i id="tm-video-control-button" class="fas fa-plus"></i>
+
+        </div>
+
+        <div class="container-fluid">
+            <div id="content" class="mx-auto tm-content-container">
+                <main>
+
+                    <div class="row tm-catalog-item-list">
+                        <% for (let i =0; i < allPhotos.length; i++) { %>
+                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
+                            <div class="position-relative tm-thumbnail-container">
+                                <img src="<%= allPhotos[i].image %>" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                <a href="/photo/<%= allPhotos[i]._id%>" class="position-absolute tm-img-overlay">
+                                </a>
+                            </div>    
+                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title"><%= allPhotos[i].title %></h3>
+                                <p class="tm-catalog-item-text"><%= allPhotos[i].description %></p>
+                            </div>
+                        </div>
+<% } %>
+                    </div>
+
+                </main>
+                <%- include('partials/_footer') -%>
+            </div> <!-- tm-content-container -->
+        </div>
+
+    </div> <!-- .tm-page-wrap -->
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
